@@ -1,0 +1,12 @@
+    I was just thinking about the concept of variables and their values , and
+    thinking that suppose we named a chunk of bits to variable name to store 
+    the value of that type.
+    let its name is myvariable of type int, then computer finds a memory
+    location for storing 4bytes of int, and that can be accessed using name
+    myvariable.and that location can be accessed by address of operator (& in 
+    C or C++. 
+    So initially my confusion was that myvariable also gets stored on some
+    other memory location, and my doubt was that whether it is character or
+    what , but as my doubt was based on a wrong concept, I concluded that 
+    the variable name myvariable itself acts as a random access for that
+    variable value.

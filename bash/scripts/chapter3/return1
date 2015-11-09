@@ -1,0 +1,4 @@
+# A script to simulate a command returning
+# a value by calling the exit command (non zero return)
+
+exit 1

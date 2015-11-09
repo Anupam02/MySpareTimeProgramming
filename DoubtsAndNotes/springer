@@ -1,0 +1,57 @@
+
+    The goal in this part of the material is to prepare students in safety critical,
+    security-sensitive, and embedded systems and recognizes that format methods
+    based in mathematical logic are the primary tools for ensuring that computing
+    systems function properly in such environments.
+
+    The emphasis , here , is on preparation. In commercial applications, mechanized
+    logic engines are essential to the enterprise of applying logic to the design
+    and implementation of computing hardware and software. This book introduces
+    students to mechanized logic in the form of propositional proof checking, and,
+    through numerous paper-and-pencil exercises in applying logic to mathematical
+    verification of hardware and software artifacts,gives students experience with
+    the fundamental notions used by engineers who apply mechanized logic engine
+    to the design of commercial computing systems.
+
+    Haskell is an excellent language for rapid prototyping (i.e., implementing a
+    program quickly and with minimal effort in order to experiment with it)
+    
+    One might wonder just how large an Integer number can be. When it performs
+    arithmetic on these numbers, Haskell allocates enough memory dynamically In
+    order to store the result. There is of course a limit to the size of number
+    that can be stored , but a modern machine with a large memory can easily
+    accomodate numbers that contain millions of digits.
+
+    Besides actually needing large numbers , there is a theoretical benefit from
+    using Integer: the arithmetic operations on this type satisfy the algebraic
+    laws. For example, we know from algebra that (x+y) -y = x , but this is not
+    always true in a computer if the arithmetic is performed with The Int type , or
+    in a language that offers only fixed-word arithmetic. It might happen that x and
+    y fit in a machine word , but the intermediate result x+y does not. In contrast ,
+    if the arithmetic is performed on the Integer type Then the computer program will
+    definitely satisfy the mathematical law.
+
+    Floating point representations are approximations,and they are not guaranteed to
+    satisfy the algebraic laws as Integer numbers do .Try evaluating the following
+    expressions on your computer:
+
+    Hugs>0.11 - 0.10
+    0.01
+    Hugs>2.11 - 2.10
+    0.0099999999999979
+
+    If the arithmetic were performed exactly , these would both give the same result ,but
+    they do not on some computers. This is a property of floating point representation,
+    not Haskell . It is possible to round the numbers so that they look the same when
+    printed , but the internal representation will still be different.
+
+    It is important to remember that when you use mathematics to reason about real numbers,
+    the results may not apply exactly to a program that uses floating point. It is particularly
+    important to be careful when comparing floating point numbers: the right way to compare them
+    is to determine whether the absolute value of their difference falls within an acceptable
+    error tolerane.
+
+    Rational       type in Haskell for rational numbers . denoted by a%b for a/b equivalent.
+
+    This Book (but no Haskell ) also uses => to indicate evaluation of an expression to a specified value.
+    

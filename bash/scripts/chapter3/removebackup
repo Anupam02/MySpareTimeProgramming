@@ -1,0 +1,9 @@
+# Example backup remove script, for files with 
+# names ending in .bak
+
+for filename in *.bak
+do 
+    echo "Removing $filename"
+    rm $filename 
+done
+

@@ -1,0 +1,8 @@
+Checking your command path for shells...
+sh found.
+bash found.
+ksh found.
+csh found.
+tcsh NOT found.
+zsh NOT found.
+ash NOT found.

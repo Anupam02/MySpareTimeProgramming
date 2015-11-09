@@ -1,0 +1,9 @@
+# this shell script illustrates what happens when we echo uninitialized variable
+
+DEFINED_VARIABLE=ANUPAM
+
+echo $DEFINED_VARIABLE
+echo 
+echo $UNDEFINED_VARIABLE
+echo $DEFINED_VARIABLE
+

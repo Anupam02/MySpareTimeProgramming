@@ -1,0 +1,68 @@
+# script to show the syntax for 
+# various numeric comparisons.
+
+# Number test.
+
+echo "**** Numeric comaparisons."
+x=5
+y=10
+
+echo "test -eq:"
+if (test $x -eq $y) then
+    echo "X = Y."
+else 
+    echo "X != Y. Expected."
+fi
+
+echo -n "test -eq:"
+if (test $x -eq $x) then
+    echo "X = X. Expected."
+else
+    echo "X != X."
+fi
+
+echo -n "test -eq: "
+if (test $x -eq "5") then
+    echo "X = \"5\". Expected."
+else
+    echo "X != \"5\". "
+fi
+
+
+echo -n "test -ne: "
+if (test $x -ne 5) then
+    echo "X != 5. "
+else
+    echo "X = 5. Expected."
+fi
+
+echo -n "test -ne: "
+if (test $x -ne $y) then
+    echo "X != Y. Expected."
+else
+    echo "X = Y."
+fi
+
+# Note extra ! for "not".
+echo -n "test -ne: "
+if (test ! $x -eq $y) then
+    echo "X != Y. Expected."
+else
+    echo "X = Y."
+fi
+
+echo -n "test -lt: "
+if (test $x -lt 5) then
+    echo "X < 5. "
+else
+    echo "X = 5. Expected."
+fi
+
+echo -n "test -le: "
+if (test $x -le 5) then
+    echo "X <= 5. Expected."
+else
+    echo "X = 5."
+fi
+
+ 

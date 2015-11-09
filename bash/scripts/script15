@@ -1,0 +1,6 @@
+# Storing a Full Command Variable
+
+DIRECTORY=/usr/local
+LS=ls
+CMD="$LS $DIRECTORY"
+$CMD

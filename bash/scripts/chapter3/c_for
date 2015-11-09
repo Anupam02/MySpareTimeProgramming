@@ -1,0 +1,16 @@
+# C-language-like for loop.
+# Must be run with bash.
+
+max=10
+
+for ((i=1; i <= max ; i++))
+do
+    echo -n "$i..."
+done
+
+echo
+
+# If you run this script with the Bourne shell,sh
+# you may see an error like following
+#  $ sh c_for
+#  c_for: 6: Syntax error: Bad for loop variable

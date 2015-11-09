@@ -1,0 +1,727 @@
+    I looked at Lisp before, and didn't understand it.
+
+    This is really tough one.Most programming languages are more similar to each
+    other than they are to Lisp.If you look at a family tree of computer languages,
+    you'll see that the most  common languages in use today are descendants of the
+    Algol family. Feature common to languages in the Algol family  include algebraic
+    notation for expressions, a block structure to control visibility of variables,
+    and a way to call subroutine for value or effect. Once you understand these
+    concepts , you can get started with another language in the family by studying
+    the surface differences: the names of keywords and the style of punctuation.
+
+    Lisp gives you incremental compilation . This means that you can compile one function
+    at a time and be ready to run your program instantly-- there is no linkage step. This
+    means that you can make lots of changes quickly and evaluate them for their effect
+    on the program. Lisp also has built-in instrumentation to help you tune the performance
+    of your program.
+
+    Now, it's mostly true that you won'f find lisp in consumer products like spreadsheets,
+    database, word processors, and games. But then , that's not the kind of work that Lisp
+    does best. You will find Lisp in products that must reason about and control complex
+    systems and processes, where the ability to reliably arrive at useful conclusions based
+    upon complex relationships among multiple sources and kinds of data  is more Important
+    than lightning-fast numerical calculators or spiffy graphics( although modern Lisp
+    system come pretty close to the leaders even in the latter two categories).
+
+    I can't call other people's code from Lisp?
+    This is mostly untrue. Most Lisp environments give you a way to call external routines
+    using either C or pascal calling conventions. You can also call back into Lisp from the
+    external program . But if you want to call C++ from Lisp, you'll probably have to write
+    a C wrapper around the C++ code.
+
+    Lisp finesse the memory leakage problem by never allowing the programmer to release unused
+    memory. The idea here is that the computer can determine when a block of memory is
+    unreachable with complete accuracy. This unreachable block is said to be garbage because
+    it is no longer useful to any part of the program. The garbage collector runs automatically
+    to gather all these unused blocks of memory and prepare them for reuse. The algorithms
+    that do this are very tricky, but they come built into your Lisp system.
+
+    Historically , garbage collecton has been slow. The earliest garbage collectors could
+    literally lock up a system for hours.Performance was so poor that early Lisp programmers
+    would run with garbage collecton turned off until they completely ran out of memory, then
+    start the garbage collection manually and go home for the rest of the day.
+
+    Over the past twenty years, a lot of good Software engineering techniques have been applied
+    to improving the performance of garbage collectors.Modern Lisp systems collect garbage almost
+    continuosly, a little bit at a time, rather than waiting and doing it all at once.The result
+    is that even on a very slow desktop machine a pause for garbage collecton will rarely exceed a
+    second or two in duration.
+
+    Lisp is only for artificial intelligence research?
+    Just not true. Lisp gets used for big projects that have to be tackled by one or a few programmers.
+    is also good for tasks that are not well defined, or that require some experimentation of find The
+    proper solution. As it turns out, artificial intelligence  meets all of these criteria. So do a lot
+    of other applications:
+    shop job scheduling,
+    transportation routing
+    military logistics,
+    sonar and seismological echo feature extraction,
+    currency trading
+    computer and computer network configuration,
+    industrial process diagnosis, and more.
+
+    These aren't mass market applications , but they still make lots of money (often by avoiding cost) for The
+    organizations that develop them.
+
+    A list can be lot of things in Lisp. In the most general sense, a list can be either a program or data. And
+    because lists can themselves be made of other lists, you can have arbitrary combinations of data and programs
+    mixed at different levels of list structure -- this is what makes Lisp so flexible for those who understand
+    it, and so confusing for those who don't.
+
+    Evaluation is simple if the form is an atom.Lisp treats the atom as a name, and retrieves the value for The
+    name ( if a value exists) . You probably wonder why I am avoiding the more direct explanation of calling The
+    atom a variable. The reason is that the atom can have either a variable value or a constant value. And The
+    atom's value can be constant for a couple of reasons.
+
+    A number is an atom.(Its value is constant for obvious reasons.) Lisp does not store a value for a number --
+    the number is said to be self-evaluating.
+
+    If a form is a list, then the first element must be either a symbol or a special form called a lambda expression.
+
+    with only a handful of exceptions , which we'll learn about at the end of this lesson, Lisp always does the same
+    thing to evaluate a list form:
+    	  1. Evaluate  the arguments, from left to right.
+	  2. Get the function associated with the first element.
+	  3. Apply The function to The arguments.
+
+    The right way to return multiple values from a function is to use the values form.
+    	$(values 1 3 "anupam")
+	1
+	3
+	"anupam"
+
+    Arguments are evaluated in left - to - right order
+    When a list form is a function call, its arguments are always evaluatd in order , from left to right.As
+    in other programming languages, it's in poor taste to rely on this, but if you absolutely have to rely
+    on the order , it's good to know that Lisp defines if for you.
+
+    Special forms and macros Change argument Evaluation
+    So if a list form isn't always a function call , what else can it be? There are two cases, but the result
+    is the same: some arguments are evaluated, and some aren't .Which is which depends upon the form and
+    nothing else.You'll just have to learn the exceptions.
+
+    There are two kinds of forms that don't evaluate all of their arguments: special forms and macros . Lisp
+    predifines a small number of special forms.You can't your own special forms --they're primitive features
+    of the language itself. Lisp also defines quite a few macros. You can also define your own macros. Macros
+    in Lisp let you use the full power of the language to add your own features.
+
+    setq
+    setq gives you a way to set that value:
+    $(setq my-name "David")
+    "David"
+
+    setq's first argument is a symbol. This is not Evaluated. The second-argument is assigned as the variable's value. setq returns the
+    value of its last argument.
+
+    	  setq doesn't evaluate its first argument because you want to assign a value to the symbol itself. If setq evalated its first
+	  argument , the value of that argument would have to be a symbol.The set form does this.Pay particular attention to the
+	  difference between the set and setq forms in the following example, and make sure you understand whats happening with The
+	  (set var-1 99) form:
+
+	  $ (setq var-1 'var-2)
+	  var-2
+	  $ var-1
+	  var-2
+	  $ var-2
+	  error :unbound variable
+
+	  $ (set var-1 99)
+	  99
+	  $ var-1
+	  var-2
+	  $ var-2
+	  99
+
+	  Did you notice the ' in the form? This keeps the following form var-2 , from being evaluated.
+
+	  In the example , we first make the value of var-1 be the symbol var-2 . Checking the value of var-2,
+	  we find that it has none. Next, we use set(not setq) to assign the value 99 to the symbol , var-2,
+	  which is the value of var-1.
+
+    The setq form can actually take any even number of arguments, which should be alternating symbols and values:
+    like (setq month "May" day 2 year "1993")
+
+    setq performs the assignments from left to right , and returns the rightmost value.
+
+    LET
+    the let form looks a little more complicated than what we've seen so far . the let form uses nested lists,
+    but because it's a special form, only certain elements get evalated.
+    $ (let ( ( a 4)
+      	     ( b 8)
+	     ( c 5))
+	 (* ( + a b) c ))
+    60
+
+    Tha above let defines values for the symbol a ,b, and c, then uses these as variables in an arithmetic calculation. The
+    calculation's result is also the result of the let form. Note that none of the variables defined in the let have a value
+    after Lisp has finished Evaluating the form.
+
+    In general , let looks like This:
+    (let (bindings ) forms )
+
+    let returns the last value(s) returned by the last form.
+
+    Unlike setq, which assigns values in left-to-right order, let binds variables all at the same time: (feel of parellelism :) )
+    unlike sequential assignment like in c or c++, or setq in lisp itself.
+    (setq w 77)
+    77
+    (let ((w 8)
+    	  (x w))
+	( + w x))
+    88          // not 8 + 8 = 16, because ( w 8) and (x w) bindings are done together
+
+    Lisp has a variation of let, called let* , that does perform bindings in order:
+    (setq u 37)
+    37
+    (let * ((v 4)
+    	    (u v))
+	   ( + u v))
+    8           // not 37 + 4 = 41
+
+    COND
+    the cond macro lets you evaluate lisp forms conditionally. Like LET, COND uses parentheses to delimit different
+    parts of the form.Consider these examples
+    (let ((a 1)
+    	  (b 2)
+	  (c 1)
+	  (d 1))
+	(cond ((eql a b) 1)                  // eql a b is nil
+	      ((eql a c) "First form" 2)     // eql a c is T , so the last form 2 is evaluated and no need to check further clauses
+	      ((eql a d) 3)))                // no need to check this clause ( like a switch case but without default case.
+    2  // answer
+
+    --clauses are tested in order.
+    --cond is more general than the Special form, IF , which only allows one test and one form each for the then and else parts.
+
+    You can use the last clause to return a default value or perform some appropriate operation. Here's an example:
+    (let ((a 32))
+    	 (cond ((eql a 13) "An unlucky number")
+	       ((eql a 99) "A lucky number")
+	       (t "Nothing special about this number")))
+    "Nothing special about This number"
+
+    QUOTE
+    Sometimes we'd like to supress Lisp's normal evaluation rules.One such case is when we'd like a symbol to stand for itself,rather than its value.When it appears as an argument of a function call:
+    (setq a 97)
+    97
+
+    a
+    97
+
+    (setq b 23)
+    23
+
+    (setq a b)
+    23
+
+    a
+    23
+
+    (setq a (quote b))
+    B
+
+    a
+    B
+    The difference is that B's value is used in (setq a b), whereas b stands for itself in (setq a (quote b)).
+    The quote form is so commonly used that Lisp provides a shorthand notation:
+    (quote form) is equivalent to 'form
+    
+    CONS
+    cons is the most basic constructor of lists.It is a function, so it evaluates both of its arguments.The second argument must be a list or NIL.
+    (cons 1 nil)
+    (1)
+    (cons 2 (cons 1 nil))
+    (2 1)
+    (cons 3 (cons 2 (cons 1 nil)))
+    (3 2 1)
+    cons adds a new item to the beginning of a list.The empty list is equivalent to NIL.
+    () is equivalent to NIL
+    so we could also have written:
+    (cons 1 ())
+    (1)
+    (cons 2 (cons 1 ()))
+    (2 1)
+    (cons 3 (cons 2 (cons 1 ()))
+    (3 2 1)
+
+    In case if you're wondering , yes , there's something special about NIL.NIL is one of two symbols in Lisp that isn't a keyword but still has itself as its constant value. T is other symbol that works like this.
+
+    LIST
+    As you may have noticed, building a list out of nested cons forms can be a bit tedious. The LIST form does the same thing in a more perspicuous manner:
+    (list 1 2 3)
+    (1 2 3)
+    List can take any number of arguments. Because LIST is a function, it evaluates its arguments:
+    (list 1 2 :hello "there" 3)
+    (1 2 :HELLO "there" 3)
+
+    FIRST and REST
+    If you think of a list as being made up of two parts-- the first element and everything else--
+    then you can retrieve any individual element of a list using the two operations, FIRST and REST.
+    (setq my-list (quote (1 2 3 4 5)))
+    (1 2 3 4 5)
+
+    (first my-list)
+    1
+
+    (rest my-list)
+    (2 3 4 5)
+
+    (first (rest my-list))
+    2
+
+    (rest (rest my-list))
+    (3 4 5)
+
+    first and rest are fairly recent additions to Lisp , renaming the equivalent functions CAR and CDR, respectively . CAR and CDR got their names from an implementation detail of one of the earliest Lisp implementations, and the names persisted for decades despite the fact that underlying implementation had long since changed.
+
+
+    Naming and Identity
+    A symbol is just a name
+    A symbol is just a name.It can stand for itself.This makes it easy to write certain kinds of programs in Lisp.For example, if you want your program to represent relationships in your family tree, you can make a database that keeps relationships like This:
+    (father PNPatel Devansh)
+    (son PNPatel RBPatel)
+    (father PNPatel Pranav)
+    (mother Savita Devansh)
+    (mother Savita Pranav)
+    ...
+
+    Each relationship is a list. (father PNPatel Devansh) means that PNPatel is Devansh's father.Every element of Every list in our database is a
+    symbol. Your Lisp program can compare symbols in this database to determine, for example , that Harold is Barry's grandfather.If you tried to write a program like this in another language -- a language without symbols --you'd have to decide how to represent the names of family members and
+    relationships, and then create code to perform all the needed operations --reading, printing, comparison, assignment, etc.This is all built into Lisp, because symbols are a data type distinct from the objects they might be used to name.
+
+    A symbol is always unique
+    Every time your program uses a symbol , that symbol is identical to Every other symbol with the same name.You can use the eq test to compare symbols
+    (eq 'a 'a)
+    T
+    (eq 'anupam 'a)
+    NIL
+    (eq 'anupam 'Anupam)  // notice that lisp internally ignores case of letters as Anupam and anupam will be treated the same
+    T
+    (setq zzz 'sleeper)
+    SLEEPER
+    (eq zzz 'sleeper)
+    T
+
+    A value can have more than one name
+    A value can have more than one name. That is , more than one symbol can share a value.Other languages have pointers that work this way.Lisp does not expose pointers to the programmer, but does have a shared objects. An object is considered identical when it passes the EQ test. Consider the following:
+    (setq L1 (list 'a 'b 'c))
+    (A B C)
+    (setq L2 L1)      // L2 is a shared object for list ('a 'b 'c)
+    (A B C)
+    (eq L1 L2)
+    T
+    (setq L3 (list 'a 'b 'c)) // L3 is a new copy of list ( 'a 'b 'c)
+    (A B C)
+    (eq L3 L1)
+    NIL
+
+    Binding versus Assignment
+    Binding creates a new place to hold a value
+    Lisp often "creates a binding" for a variable by allocating a piece of storage to hold the variable's value and putting  the value into the newly allocated memory.Binding is a very general mechanism for implementing lexical scope for variables, but it has other uses depending upon the lifetime of the binding.
+    Yes, Lisp allocates storage for new bindings. While this sounds like it could be horribly inefficient , we've said nothing yet about where Lisp allocates the storage.For example , Lisp binds function parameters to actual values, but allocates the storage on the stack just like any other programming language. Lisp creates Bindings in the heap if it can't determine that the Binding has a lifetime which ends when the binding form finishes executing.
+
+
+    One more thing you should know is that an outer binding is still visible through inner binding forms, as long as the inner binding form does not bind the same symbol:
+    ;; Here , A and B have no binding.
+    (let ((a 1)
+    	  (b 9))
+	;;Here, the innermost binding of A has the value 1,
+	;;and the Binding of B has the value 9.
+	  (let ((a 2))
+	     ;; Here, the innermost Binding of A has the value 2.
+	     ;; The Binding of B still has the value 9.
+	     (let ((a 3))
+	     	  ;; Here, the innermost Binding of A has the value 3.
+		  ;; B still has the value 8 from the outermost LET form.
+		  ...)))
+
+    The program can only access bindings it creates
+    When a binding form binds a new value to and existing symbol, the previous value becomes shadowed. the value of the outer binding is hidden (but not forgotten) while your program code executes inside the inner Binding form. But as soon as your program leaves the inner binding form , the value of the outer Binding is restored. For example:
+    (let ((z 1))
+    	 ;; Here, the innermost binding of Z has the value 1.
+	 (let ((z 2))
+	   ;; Here, the innermost Binding of Z has the value 2.
+	   ...)
+	 ;; Now we're outside the inner Binding form,
+	 ;; and we again see the Binding with the value 1.
+	 ...)
+
+
+	 DEFUN defines named functions
+	 (defun secret-number (the-number)
+	   (let ((the-secret 37))
+	     (cond ((= the-number the-secret) 'that-is-the-secret-number)
+	     	   ((< the-number the-secret) 'too-low)
+		   ((> the-number the-secret) 'too-high))))
+
+    defun returns the name of the defined function, and installs a global definition using the name, parameter list, and body that you supplied.Once you create a function using defun , you can use it right away:
+    (secret-number 11)
+    too-low
+    (secret-number 99)
+    too-high
+    (secret-number 37)
+    that-is-the-secret-number 
+
+of course, you can define a function of more than one argument:
+   (defun my-calculation (a b c x)
+       (+ (* a (* x x)) (* b x) c))
+   MY-CALCULATION
+
+   (my-calculation 3 2 7 5)
+   92
+
+   When calling a function , parameters are bound to argument names in order.Lisp has several optional variations on the list of argument names.Formally , this list is called a lambda list.
+
+   LAMBDA defines anonymous functions
+
+   At times you'll need only one place in your program.You could create a function with DEFUN and call it just once.Sometimes, this is the best thing to do, because you can give the function a descriptive name that will help you read the program at some letter date. But Sometimes the function you need is so trivial or so obvious that you don't want to have to invent a name or worry about whether the name might be in use somewhere else.Lisp lets you create an unnamed , or anonymous, function using the LAMBDA form. A LAMBDA form looks like a DEFUN for without the name:
+   (lambda (a b c x)
+     (+ (* a (* x x)) (* b x) c))
+You can't evaluate a LAMBDA Form; it must appear only where Lisp expects to find a function --normally as the first element of the form:
+    (lambda (a b c x)
+      (+ (* a (* x x)) (* b x) c))
+    Error
+
+    ((lambda (a b c x)
+      (+ (* a (* x x)) (* b x) c))
+     3 2 7 5)
+    92
+
+    DEFMACRO defines named macros
+    A DEFMACRO form looks a lot like a DEFUN form -- it has a name, a list of argument names, and a body:
+    (defmacro name (argument ...)
+      body)
+
+    Macros return a form, not values
+    The macro body  returns a form to be evaluated.In other words, you need to write the body of the macro
+    such that it returns a form, not a value. When Lisp evaluates a call to your macro, it first evaluates the body of your macro definition,then evaluates the result of the first Evaluation.(By way of comparison , a function's body is evaluated to return a value.)
+
+    Essential Multiple Values
+    Most forms create only one value
+    A form returns only one value.Lisp has only a small number of forms which create or receive multiple values.
+
+    VALUES creates multiple or no values.
+
+    A few special forms recieve multiple values
+    What might you want to do with multiple values in a program? The most basic operations are to :
+    1. bind each value to a seperate symbol, or
+    2. collect the values into a list.
+
+    Use multiple-value-bind to find each value to a seperate symbol:
+    (multiple-value-bind (a b c) (values 2 3 5)
+    	(+ a b c))
+    10
+
+    If you provide more values than symbols, the excess values are ignored:
+    (multiple-value-bind (a b c) (values 2 3 5 'x 'y)
+      (+ a b c))
+    10
+
+    If you provide fewer values than symbols, the excess symbols are bound to NIL:
+    (Multiple-value-bind (w x y z) (values: :left :right)
+        (list w x y z))
+    (:LEFT :RIGHT NIL NIL)
+
+    Some forms pass along Multiple values
+    Some forms pass along the last value in their body , rather than creating a new value.Examples include the bodies of LET, COND, DEFUN, and LAMBDA.
+    (let ((a 1)
+    	  (b 2))
+	(values a b))
+    1
+    2
+
+    (cond (nil 97)
+          (t (values 3 4)))
+    3
+    4
+
+    (defun foo(p q)
+      (values (list :p p) (list :q q)))
+    foo
+
+    (foo 5 6)
+    (:P 5)
+    (:Q 6)
+
+    ((lambda (r s)
+      (values r s))
+     7 8)
+    7
+    8
+
+    In the case of the function and lambda bodies , the multiple values are actually returned by something called an "implicit PROGN."This is a fancy way of saying that the bodies can contain multiple forms,and only the value of the last form is returned.
+    You can use the PROGN special form when you want this behaviour. (PROGN form1 form2 ... formN) evaluates form1 through formN in order,and returns the value of formN.
+
+    A Preview of Other Data Types
+    Lisp almost always does the right thing with numbers
+
+    This sounds like a strange thing to say. Don't computers always do the right thing with numbers? Well , no.. Not usually.
+
+    Numeric calculations can break in lots of different ways.One of the biggest trouble spots is in calculations with floating point numbers(your language may call them real numbers, but that's a lie). There are probably half as many books written on use of floating point calculations as there are on visual- or object-oriented-anything --and that's a lot.
+
+    The problem with floating point numbers is That they're not mathematically accurate real numbers, but are often(mis)used as if they are. The main problem is that floating point numbers have a limited accuracy -- only so many digits to the right of the decimal point.Now, if all of the numbers in a calculation are of approximately the same magnitude, then the calculation won't lose accuracy.But if the numbers are of very different mangnitude, then a floating point calculation sacrifies  accuracy.
+
+    Suppose that a floating point number on your computer can accurately represent 7 decimal digits.Then you can add 1897482.0 to 2973225.0 and get a completely accurate answer.But if you try to add 1897482.0 to 0.2973225, the accurate answer has fourteen digits, while your computer will answer with 1897482.0.
+
+    The other problem with floating point numbers is more subtle.When you write a program, you write numbers in base 10.But the computer does all arithmetic in base 2.The conversion from base 10 to base 2 does funny things to certain "obviously exact" numbers.For example, the decimal number 0.1 is a repeating fraction when translated into binary.Because the computer can't store the infinite number of digits required by a repeating fraction, it can't store the number 0.1 accurately.
+
+    Integer(whole number) arithmetic poses another problem in most computer languages --they tend to impose a limit on the maximum positive or negative value that an integer can hold.So, if you try to add the number one to the largest integer your language lets the computer handle, one or two things will happen:
+    1. Your program will terminate with an error, or
+    2. You will get a wildly incorrect answer (the largest positive number plus one yields the largest negative Integer in at least one computer language).
+
+    So how does Lisp manage to do the right thing with the numbers ? After all, it seems like those problems are inherent in computer arithmetic.
+    The answer is that Lisp doesn't do use just the built-in computer arithmetic operations --it adds certain mathematically accurate numberic data types:
+    * bignums are integers with an unlimited number of digits (subject only to limitations of computer memory)
+    * rational numbers are the exact quotient of two integers, not a floating point number resulting from an approximate machine division algorithm
+
+    Of course, Lisp also has machine-based integers and floating point numbers.Machine Integers are called fixnums in Lisp.So long as a whole number falls within the numeric range of fixnum, Lisp will store it as a machine Integer.But if it gets too big, Lisp automatically promotes it to bignum.
+
+    When I wrote Lisp almost does the right thing with numbers, I meant that it almost always chooses the numberic representation that is mathematically correct:
+    (/ 1 3)
+    1/3
+
+    (+ (/ 7 11) (/ 13 31))
+    360/341
+
+    (defun factorial (n)
+      (cond ((= n 0) 1)
+      	    (t (* n (factorial (- n 1))))))
+    FACTORIAL
+
+    (factorial 100)
+    very long no , :) don't take my words for it try this :)
+
+    You can write calculations to use floating point numbers, but lisp won't automatically turn an exact numeric result into an inexact floating point number --you have to ask for it.Floating point numbers are contagious --once you introduce one into a calculation, the result of the entire calculation stays a floating point number:
+    (float (/ 1 3))
+    0.333333334 ;;as we know its 0.33333333333333.... which is rounded off to 0.3333333333334 which is precision lose
+
+    (* (float (/ 1 10)) (float (/ 1 10)))
+    0.010000001 ;;which is obviously not equal to 0.01 as written theoretically. as 0.1*0.1 = 0.01
+
+
+
+    Characters give Lisp something to read and write
+    Basic Lisp I/O uses Characters. The READ and WRITE functions turn Characters into Lisp objects and vice versa.READ-CHAR and WRITE-CHAR read and write single Characters.
+
+    Lisp represents a single character using the notation #\char, where char is a literal character or the name of a character that does not have a printable glyph.
+
+    Character                  Hex Value                Lisp                Standard?
+    ---------------------------------------------------------------------------------
+    space                      20                       #\Space             yes
+    newline                    0D(Macintosh);; CR       #\Newline           yes 
+    			       0D 0A(Windows)
+			       0A(*nix)(UNix like);;LF
+    backspace                  08                       #\Backspace         semi
+    tab                        09                       #\Tab               semi
+    linefeed                   0A                       #\Linefeed          semi
+    formfeed                   0C                       #\Page              semi
+    carriage return            0D                       #\Return            semi
+    rubout or DEL              7F                       #\Rubout            semi
+
+    Only #\Space and #\Newline are required on all Lisp systems.Systems that use the ASCII Character set will probably implement the rest of the Character codes shown above.
+
+
+
+
+    Arrays organize data into tables
+    If you need to organize data tables of two , three, or more dimensions, you can create an array:
+
+    To set an element of an array, use aref inside a setf form. setf is similar to setq , except where setq assigns a value to a symbol, setf assigns a value to a place.
+
+    Vectors are one-dimensional arrays
+    Vectors are one-dimensional arrays.You can create a vector using make-array , and access its elements using aref.
+    (setq v1 (make-array '(3)))
+    #(0 0 0)
+
+    (make-array 3)
+    #(0 0 0)
+
+    (setf (aref v1 0) :zero)
+    :ZERO
+
+    (setf (aref v1 1) :one)
+    :ONE
+
+    (aref v1 0)
+    :ZERO
+
+    v1
+    #(:ZERO :ONE 0)
+
+    Lisp prints vectors using the slightly abbreviated form #(...) , rather than #1A (...).
+
+    You can use either a single-element list or a number to specify the vector dimensions make-array --the effect is the same.
+
+    You can create a vector from a list of values, using the vector form:
+    (vector 34 22 30)
+    #(34 22 30)
+
+    This is similar to the LIST form,except  that the result is a vector is a vector instead of a list.There are other similarities between lists and vectors: both are sequences. Sequences are manipulated by the functions.
+
+    You can use the aref to access the elements of a vector, or you can use the sequence-specific function, ELT:
+    (setf v2 (vector 21 3 4 23 64 23))
+    #(21 3 4 23 64 23)
+
+    (setf (elt v2 3) :radio)
+    :radio
+
+    v2
+    #(21 3 4 :radio 64 23)
+
+    Strings are vectors that contain only characters
+    You already know how to write a string using the "..." syntax.Since a string is a vector, you can apply the array and vector functions to access elements of a string. You can also create strings using the make-string function or change characters or symbols to strings using the STRING function.
+    (setq  "hello, there.")
+    "hello, there."
+
+    Symbols are unique , but they have many values
+    symbol has unique Identity , but this bears repeating: A symbol is Identical to any other symbol spelled the same way(including its package designation).This means that you can have Lisp read a program or data, and Every occurrence of a symbol with the same spelling is the same symbol.Since Lisp supplies the mechanism to do this, it's one less thing you have to worry about when you write a program that manipulates symbolic information.
+
+    As we know that a symbol can have values as a variable and a function , and for documentation, print name, and properties.A symbol's property list is like a miniature database which associates a number of key/value pairs with the symbol.For example , if your program represented and manipulated objects, you could store information about an object on its property list:
+
+    (setf (get 'object-1 'color) 'red)
+    RED
+
+    (setf (get 'object-1 'size) 'large)
+    LARGE
+
+    (setf (get 'objects-1 'shape) 'round)
+    ROUND
+
+    (setf (get 'object-1 'position) '(on table))
+    (on table)
+
+    (setf (get 'object-1 'weight) 15)
+    15
+
+    (symbol-plist 'object-1)
+    (WEIGHT 15 POSITION (ON TABLE) SHAPE ROUND SIZE LARGE COLOR RED)
+
+    (get 'object-1 'color)
+    RED
+
+    object-1
+    Error:no value
+
+    Note that object-1 doesn't have a value -- all of the useful information is in two places: the Identity of the symbol, and the symbol's properties.
+    	 This use of properties predates modern object programming by  a few decades.It provides two of the three Essential mechanism of an object:Identity and encapsulation(remember that property values could just as well be a function). The third mechanism , inheritance, was Sometimes simulated by links to other "objects."
+
+    Properties are less often used in modern Lisp programs . Hash tables, structures , and CLOS objects provide all of the capabilities of property list in ways that are easier to use and more efficient.Modern Lisp development systems often use properties to annotate a program by keeping track of certain information such as the file and file position of the defining form for a symbol, and the definition of a function's argument list.
+
+    Structures let you store related data
+    A Lisp programmer gives you a way to create an object which stores related data in named slots.
+    (defstruct struct-1 color size shape position weight)
+    STRUCT-1
+
+    (setq object-2 (make-struct-1
+			:size 'small
+			:color 'green
+			:weight 10
+			:shape 'square))
+    #S(STRUCT-1 :COLOR GREEN :SIZE SMALL :SHAPE SQUARE :POSITION NIL :WEIGHT 10)
+
+    (struct-1-shape object-2)
+    SQUARE
+
+    (struct-1-position object-2)
+    NIL
+
+    (setf (struct-1-position object-2) '(under table))
+    (UNDER TABLE)
+
+    (struct-1-position object-2)
+    (UNDER-TABLE)
+
+    In the example, we defined a structure type named struct-1 with slots named color, shape, size, position, and weight.Then we created an instance of struct-1 type, and assigned the instance to the variable object-2.The rest of the example shows how to access slots of struct instance using accessor functions named for the structure type and the slot name.Lisp generates the make-structname and structname-slotname functions when you define a structure using defstruct.
+
+    Type information is apparent at runtime
+    A symbol can be associated with any type of value at runtime.For cases where it matters, Lisp lets you query the type of value.
+
+    Hash Tables provide quick data access from a lookup key
+    A hash table associates a value with a unique key.Unlike a property list , a hash table is well suited to a large number of key/value pairs, but suffers from excessive overhead for smaller sets of associations.
+    (setq ht1 (make-hash-table))
+    #<HASH-TABLE>
+
+    (gethash 'quux ht1)
+    NIL
+    NIL
+
+    (setf (gethash 'baz ht1) 'baz-value)
+    BAZ-VALUE
+
+    (gethash 'baz ht1)
+    BAZ-VALUE
+    T
+
+    (setf (gethash 'gronk ht1) nil)
+    NIL
+
+    (gethash 'gronk ht1)
+    NIL
+    T
+
+    You create a hash table using MAKE-HASH-TABLE , and access values using GETHASH,GETHASH returns two values.The first is the value associated with the key.The second is T if the key was found, and NIL otherwise.
+
+
+
+    READ accepts Lisp data
+    As we know , READ turns Characters into Lisp data.So far, you've seen a printed representation of several kinds of Lisp data:
+       * symbols and numbers
+       * strings, Characters, lists , arrays, Vectors, and Structures,
+       * and hash tables.
+
+    The lisp reader does its job according to a classification of Characters.The standard classifications are shown below.
+    Standard Constituent Characters
+    --------------------------------
+    a b c d e f g h i j k l m n o p q r s t u v w x y z
+    A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+    0 1 2 3 4 5 6 7 8 9
+    ! $ % & * + - . / : < = > ? @ [ ] ^ _ { } ~
+    <backspace> <rubout>
+
+    Standard Terminating Macro Characters
+    -------------------------------------
+    " ' ( ) , ; `
+    
+    Standard Non - Terminating Macro Characters
+    ------------------------------------------- 
+    #
+
+    Standard Single Escape Characters
+    --------------------------------- 
+    \
+
+    Standard Multiple Escape Characters
+    -----------------------------------
+    |
+
+    Standard Whitespace Characters
+    ------------------------------ 
+    <tab> <space> <page> <newline> <return> <linefeed>
+
+    If read starts with a Constituent Character, it begins accumulating a symbol or number. When read encounters a terminating macro Character or Whitespace Character, it tries to interpret the collected Constituent Characters first as a number, then as a symbol.If a numeric interpretation is possible, read returns the number.Otherwise, read changes the alphabetical Characters to a Standard case ( normally uppercase), interns the name as a symbol, and returns the symbol.
+
+    Escape Characters play a special role.A single escape Character forces the following Character to be treated exactly as a contituent Character.In this way Characters that are normally treated as Whitespace or Terminating macro Characters can be part of a symbol.If read encounters an Escape Character, it never attempts to interpret the resulting Constituents as a number, even if only digits were escaped.
+
+    If read starts with a macro Character, the Character determines the next step:
+"
+	Read a string
+'
+	Read a form.
+(
+	Rad a list.
+;
+	Ignore Everything up to Newline.
+#
+	Decide what to do based on the next Character.
+
+
+    Finally, some Lisp data is not meant to be read.For example, the printed representaiton of a hash table looks something like #<HASH-TABLE>.It is an error for READ to attempt to read anything beginning with the Characters #<.
+
+    PRINT writes Lisp data for you and for READ
+    The print function changes a Lisp object into the sequence of Characters that READ would need to reconstruct it:
+    (print 'abc)
+    ABC
+
+
+    The reader turns characters into data
+    Lisp gathers Constituent Characters into symbols and numbers, and that macro Characters control the reader to handle lists, Strings, quoted forms, and comments.In all of these cases,  the reader turns Characters into data.

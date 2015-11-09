@@ -1,0 +1,7 @@
+what does it mean to compile from source?
+line feed '\n' ASCII 10 , in windows and linux?
+Ctrl-z , Ctrl-d as eof in windows and linux?
+
+in pascal
+* function = returns value(length);
+* procedures = perform specific operations that do not necessarily returns a value(writeln);

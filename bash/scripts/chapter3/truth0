@@ -1,0 +1,16 @@
+# A script to check for truth value
+# for if condition in using two other
+# script one return 0(success) and 
+# other 1 (non - zero value or failure)
+
+if (sh return0 ) then
+    echo "Command returned true."
+else
+    echo "Command returned false."
+fi
+# The sh command runs the Bourne shell with
+# the name of a script, return0, and the
+# return0 script calls the exit command
+# with an exit code of 0,or success.Thus
+# sh return0 is a command that returns 0,or success.
+

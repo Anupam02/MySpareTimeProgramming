@@ -1,0 +1,13 @@
+# A script to check for the failure
+# or success of if condition based
+# on the value returned by the program
+
+if (sh return1) then
+    echo "Command returned true."
+else
+    echo "Command returned false."
+fi
+
+# return1 script calls exit with a 
+# command-line argument of 1, 
+# a nonsuccess exit code.

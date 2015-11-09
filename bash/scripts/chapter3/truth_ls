@@ -1,0 +1,13 @@
+# script to check for exit status of ls > /dev/null
+# here ls>dev/null will always be true in 
+# virtually every conditions
+# except when the command generates an error
+# for example, when you force ls to list
+# contents of a directory that does not 
+# exists
+
+if (ls > /dev/null) then
+    echo "ls is true"
+else
+    echo "ls is false"
+fi

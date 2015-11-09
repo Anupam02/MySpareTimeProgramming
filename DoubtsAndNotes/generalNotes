@@ -1,0 +1,78 @@
+power of adding 0 at least significant  place
+    adding 0 at any number is equal to multiply that number with the base number
+    system it is represented in for example:
+        2
+        20 (2*10(base))
+        
+        0b10
+        0b100 (0b10*2(base))
+
+        04
+        040 (08*8(base))
+or (|) , and (&) property
+    As a quick rule of thumb, 
+    X & Y will always be smaller or equal to the smallest value of X and Y, 
+    X | Y will always be bigger than or equal to the largest value of X or Y.
+    Analogy:
+    LCM(x,y) >= x , y
+    HCF(x,y) <= x , y
+
+    x & y <= x , y
+    x | y >= x , y
+problem of handling large numbers in languages like perl and some other
+    large numbers a handled by converting them to floating point numbers and
+    representing them in exponent and mantissa.
+    as in perl integer is 8 byte so the largest number could be 2**64-1 (one 
+    combination of bits used to represent 0). and applying not operator 
+    on 4 also prooves it
+    as
+        2**64-1 = 18446744073709551615
+    and 
+        ~4      = 18446744073709551611
+    which is equivalent to 
+        (2**64 -1){ range of integer in 8 bytes } -4 {{ just think about the support for negative numbers }}
+
+    but when i tried to print 2**64   which is obviously 1 more than the 
+    maximum range of 8 byte data type (if one bit is not assigned for -ve or +ve
+    checking). it comes out to be 1.84467440737096e+19 which is in kind of 
+    floating point representation. (that's the problem of dynamically typed
+    languages :) int and floating point doesn't have any clear boundary till i r    read it :) )
+
+program counter
+    The program couter is used to tell the computer where to fetch the next
+    instruction from.there is no difference between the way data and
+    programs we stored, they are just interpreted differently by the CPU.
+    The program counter holds the memory address of the next instruction to
+    be executed. The CPU begins by looking at the program counter, and 
+    fetching whatever number is stored in memory at the location specified.
+    It is then passed on to the instruction decoder which figures out what
+    the instruction means.
+processor architecture
+    Processors have advanced quite a bit in recent years, and are now much
+    more complex. Although the basic operation is still the same, it is 
+    complicated by the use of cache hierarchies, superscalar processors,
+    pipelining, brach prediction, out-of-order execution, microcode
+    translation, coprocessors, and other optimizations.
+instruction pointer
+    The only way the computer knows that a memory location is an instruction
+    is that a special-purpose register called the instruction pointer points
+    to them at one point or another.If the instruction pointer points to a
+    memory word, it is loaded as an instruction.Other  than that , the 
+    computer has no way of knowing the difference between programs and 
+    other types of data.
+storage of pictures, music..
+    Remeber, computer can only store numbers, so letters, pictures, music, web
+    pages, documents, and anything else are just long sequence of numbers in 
+    the computer, particular programs know how to interpret.
+assemble and link
+    An object file is code that is in the machine's language, but has not been 
+    completely put together. In most large programs, you will have several 
+    source files, and you will convert each one into object file. The linker is
+    the program that is responsible for putting the object files together and
+    adding information to it so that the kernel knows how to load and run it.
+function name
+    A function's name is a symbol that represents the address where the function's code
+    starts.In assembly language , the symbol is defined by typing the function's name as
+    a label before the function's code.    
+
+

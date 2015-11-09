@@ -1,0 +1,17 @@
+# trial script to test for concatenating two value
+
+myval="anupam"
+echo $myval 
+
+# try to concatenate with space between 
+
+echo $myval abc
+echo "$myval abcd"
+echo "$myvalabcd"  # echo's nothing as myvalabcd is not a variable defined
+
+# now how to concatenate without space between them?TODO:
+
+
+
+ 
+

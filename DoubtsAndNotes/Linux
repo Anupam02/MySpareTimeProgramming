@@ -1,0 +1,18 @@
+while making any script executable in the current directory , you can add the
+current working directory to the path by PATH=PATH:.  , or execute it by
+./script  , ./ is for specifying the current directory.
+
+Specifying the path prepended with ./ does have one other advantage: It ensures
+that you don't accidentally execute another command on the system with the same
+name as your script file.
+
+    ** You shouldn't change the PATH variable like this for the superuser, 
+    conventionally the user name root.It's a security loophole, because the 
+    system administrator logged in as root can be tricked into invoking a fake
+    version of a standard command.One of the authors admits to this once --
+    just to prove a point to the system administrator about security, of course!    It's only a slight risk on ordinary accounts to include the current 
+    directory in the path, so if you are particularly concerned , just get into
+    the habit of prepending  ./ to all commands that are in the local directory.
+
+
+

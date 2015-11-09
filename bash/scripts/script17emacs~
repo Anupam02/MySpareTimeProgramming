@@ -1,0 +1,6 @@
+# Reading multiple Values
+
+echo -n "Please enter your first name: "
+read FIRSTNAME
+
+echo -

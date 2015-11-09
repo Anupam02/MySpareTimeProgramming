@@ -1,0 +1,8 @@
+# C shell foreach
+
+foreach filename (*)
+    echo $filename
+end
+
+# This script runs under C shell
+

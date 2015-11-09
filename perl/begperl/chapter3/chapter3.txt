@@ -1,0 +1,72 @@
+chapter3.txt
+
+:Author: Anupam Patel
+:Email: patel.anupam@gmail.com
+:Date: 2015-10-18 11:08
+
+array and hashes
+    Some people call hashes 'associative arrays' because they look a bit like
+    like arrays where each element is associated with another value. Mose 
+    Perl programmers find that a bit too long-winded and just call them hashes
+
+perl automatically flattens the lists.
+    If you try putting a list inside another list, the internal list loses its
+    identity.In effect perl removes all  the brackets apart from the outermost
+    pair. There's no difference at all between any of these three lists:
+        (3, 8, 5, 15)
+        ((3, 8), (5, 15))
+        (3, (8, 5), 15)
+    Similarly, perl sees each of these lists as exactly the same as the others
+        ('one', 'two', 'three', 'four')
+        (('one','two','three','four'))
+        (qw(one two three), 'four')
+        (qw(one two), q(three), 'four')
+        (qw(one two three four))
+
+accessing index
+    while accessing fractional part got floor function converted.
+    and negetive (-1 means last element) indexs tends to reverse the indexing.
+
+ranges
+    (1..10) , similar to haskell [1..10]
+    ('a'..'z'), similar to haskell ['a'..'z']
+    (1.5..5.9),produces (1..5) , because perl uses floor function to treat
+    fractional parts. but in haskell [1.5..5.9] produces [1.5,2.5,3.5,4.5,5.5]
+    perl and haskell also supports -ve numbers in ranges
+    reverse (1..10) , in haskell reverse [1..10] ,
+    in python a=range(1,11), a.reverse() # but python's reverse will change
+    the state of the list variable a .another way would be a[::-1]
+assigning a array element to a scalar gives its length.
+
+stringifying variables
+    putting array variable inside " ", placed spaces between them.
+    as with scalars, interpolation is not confined to print. For example
+        $scalar = "@array\n";
+    is same as
+        $scalar = "array elements with spaces in between them and \n";
+    Forcing variables to make sense in a string is called stringifying them.
+
+Scalar vs List context
+    we can force something to be in scalar context when it expects to be in 
+    list context by using the scalar operator.Compare these two statements:
+    	 print @array1;
+	 print Scalar @array1;
+
+    perl distinguishes between operations that want a list and operations
+    that want a Scalar.Those that want a list, such as print or assigning
+    to an array , are said to be in list context.Those that want a Scalar
+    are said to be in Scalar context.The value of an array in list context
+    is the list of its elements- the value in the Scalar context is the
+    number of its elements.
+
+Array function and Array operators
+push and pop deals with the end of the array.
+shift and unshift deals with front of the array.
+
+keys %hash , values %hash, each in perl is equivalent to dict.keys(), dict.values() and dict.items() in python
+($a, $b) = (10, 20);
+    perl uses lazy evaluation that's why 
+        there is no problem when
+            there are more elements on the right than on the left.
+            there are more elements on the left than on the right.
+

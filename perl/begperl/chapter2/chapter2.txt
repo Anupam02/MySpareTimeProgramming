@@ -1,0 +1,79 @@
+Perl uses concept of lazy evaluation in print
+    For every large integers, we might find it easier to split the number up.So when
+    we write out ten million, we're likely to split up the thousands with commas, 
+    like this: 10,000,000.  We can also do this in perl, but with the underscore(_) 
+    instead of comma(,).Note that this is only to help us make our code clearer -
+    perl ignores it.
+    
+    print 24_000_000; # perl ignores _'s but it increases readability.
+    >24000000
+    
+    A bareword is a series of characters outside of a string that perl doesn't 
+    recognize. 
+    
+    single quoted strings are not interpolated, whereas double quoted strings are interpolated.
+    
+    Naturally, there's no problem with putting single quotes inside a double-quoted
+    string, or vice versa:
+    print "It's as easy as that.\n";
+    print '"Stop," he cried.',"\n";
+
+balanced checking in perl
+    There is also a special operator that isn't really a Boolean comparison 
+    because it doesn't give us a true-or-false value.Instead it returns 0 it 
+    the two are equal, -1 if the right hand side is bigger, and 1 if the 
+    left-hand side is bigger.
+        It is denoted by <=>. Think of it as a balance, pointing towards the    
+        lower number.
+
+Truth and Falsehood
+    "Truth is anything that is not zero, an empty string, an undefined value, or
+    an empty list."
+What is Undefined value?
+    The undefined value isn't simply a string with nothing in it -- it's nothing
+    at all. In a very Zen-like way, a string with no characters is still a 
+    string. The undefined value isn't zero either, although it gets converted
+    to zero if you use it as a number in the same way that an empty string does.
+    The undefined value represents nothing, empty, void.
+
+types of data and variables
+    three type of data
+    scalars, lists , and hashes.
+    three types of variables to put them in
+    scalar variables, arrays, hashes.
+
+Autoincrement and Autodecrement
+    both add and subtract one from the variable, but their precedence is a 
+    little strange. When they precede a variable, they act before everything 
+    else. If they come afterwards, they act after everything else.
+    consider begperl auto1.pl for further insight 
+
+The special variable $_
+    There are certain variables, which Perl provides internally, that you 
+    either are not allowed to, or do not want to, overwrite. One which is 
+    allowed by the naming conventions above is $_, a very special variable
+    indeed. $_ is the "default variable" that a lot of functions read from
+    and write to if no other variable is given. 
+
+perl interpolates scalar variables and arrays , but not hashes.
+
+SUMMARY
+    Perl has three main data types - scalars, lists, and hashes. Lists and 
+    hashes are made up of scalars, which are in turn made up of integers, 
+    floating-point numbers, and strings. Perl converts between these three 
+    automatically, so we don't need to distinguish between them.
+
+    Double and single-quoted strings differ in the way they process the text
+    inside them. Single-quoted strings do little to no processing at all, 
+    whereas double-quoted strings interpolate escape sequences and variables.
+    We can use alternative delimiters and here-documents as alternative ways
+    of entering strings. 
+
+global and lexical
+    Globals exist all the way through the program and so can be troublesome if
+    we don't keep very good track of where they are being used. Lexicals have
+    a life span of the current block, so we can use them safely without 
+    worrying about clobbering similarly named variables somewhere  else in 
+    the program.
+
+

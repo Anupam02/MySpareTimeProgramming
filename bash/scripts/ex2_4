@@ -1,0 +1,18 @@
+# script to list the contents of /usr/bin 
+# or a directory that has many commands.
+
+DIRECTORY="/usr/bin"
+COMMAND="ls"
+COMMAND_LINE_OPTION="-1"
+
+# -1 command line option is to list the files in one column
+
+# list of executable files
+EXECUTABLES="$COMMAND $COMMAND_LINE_OPTION $DIRECTORY"
+
+$EXECUTABLES
+
+
+
+
+

@@ -1,0 +1,11 @@
+In eloquent_javascript it is written that Computer memory used to be a lot smaller, and people tended to use groups of 8 or 16 bits to represent their numbers.
+It was easy to accidentally overflow such small numbers, 
+    My question is why designer in those days didnot picked integer size to 4 ytes instead of 1 or 2 bytes because that could have managed as 8 byte data are
+managed these days by a 32 bit processor?
+
+and one more related query., is 16 byte datatype possible?
+
+
+When we say cout<<A[3]; where A is an array, then we say it is operation of O(1), order 1,because we say that it is random access , not iterator but my question
+is how random access can give O(1) or constant access time, because, accessing
+an array also takes some time internally I think.

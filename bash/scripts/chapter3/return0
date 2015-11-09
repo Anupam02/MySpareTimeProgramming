@@ -1,0 +1,4 @@
+# A sample program simulate a command returning
+# a value by calling the exit command.
+
+exit 0

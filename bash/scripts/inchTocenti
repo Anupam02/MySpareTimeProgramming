@@ -1,0 +1,5 @@
+# script to convert inch to centimeter
+
+
+expr2.54 * $1
+

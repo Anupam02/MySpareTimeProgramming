@@ -1,0 +1,112 @@
+    Real numbers are generally stored in a larger number of bytes than are integers,
+    but they are of limited precision.Fractions such as 0.333333 and 0.6666666 can 
+    never be as precise as the exact values 1/3 and 2/3, regardless of how many
+    digits are used to represent the number. For this reason, it is not recommended
+    to test two real numbers for equality. Instead , it would be better to test to see
+    if the difference between the two numbers is less than some specific small amount.
+
+    In one byte , you can store either a shortint or a byte. The byte is actually an
+    unsigned shortint , which means that it can hold only positive numbers .
+    As you can see in the table, the maximum range of values for a type is doubled
+    when the sign is not used. The same applies to the types integer and word,
+    as the WORD is a positive integer of doubled maximum range.
+    0-255, otherwise it could be -128 to 127.
+    
+    x to the power y is equal to exp(ln(x)*y) in pascal.  
+
+    The character set is internally represented by one-byte integer code. The universally
+    used code for small computers is the ASCII code(American Standard Code for Information
+    Interchange). The ASCII code includes 256 characters from 0 to 255. The first half of
+    the ASCII code (from 0 to 127) is standard on all personal computers. It includes the
+    following characters:
+        The uppercase letters(A-Z): ASCII 65 to 90
+        The lowercase letters(a-z): ASCII 97 to 122
+        The digits (0-9) : ASCII 48 to 57
+        The code also contains punctuation characters and control characters.
+    The second half of the ASCII code is not standard and is implemented differently on
+    different machines.
+
+    The relative sequence of characters in the ASCII set is called the ordinal number.
+
+    The lase extra value will be ignored by the program , as the pointer will move 
+    past the end-of-line mark after the three values are stored, 
+    /** This feature of the READLN statement is inherited from the old days when 
+        data were read from puched cards(each card represents a line of data).
+        The READLN was used to read only a specific number of items and eject to 
+        the next card.
+    **/
+
+    In order to read a line of text up to (but not including) the end-of-line mark, you can use a loop like this:
+        while not EOLN do
+            begin
+                read(Ch);
+                ....
+            end;
+
+
+    The read statement will continue to read characters until the end-of-line mark is detected, thus terminating
+    the while loop.Notice , however, that the end-of-line mark is still in the buffer and could be read by any
+    subsequent read statement, so before any subsequent read you have to clean the buffer with a  READLN.
+
+    Some of them are called functions because they return a value which replaces the function
+    call (eg. LENGTH) . others are called procedures , as they perform specific operations that
+    do not necessarily returs a value(eg writeln). 
+    functions  - return value
+    procedures - perform operations does not return value.
+
+    The variables in the main program can only be modified from other procedures if they are 
+    global ( and not redeclared in the procedure) or are passed by reference as variable parameters
+    to the procedure. Acessing global variables from a subprogram is not recommended, as it repeals
+    the modularity of the program. Using parameters is safer, and it also keeps the subprogram 
+    independent and useful with different programs.
+
+    Like arrays, enumerated types and subranges must be declared in the TYPE section if they are to 
+    be used as formal parameters in a subprogram.
+
+    In a function subprogram , the function name cannot be treaated like a variable
+    i.e. , it may not be involved in expressions. It may only be assigned a value.
+
+    Any subprogram can be called from any program unit as long as its definition    (or its forward declaration) preceded the call.
+
+    Unlike arrays, the order of elements in a set is not important.For example, the set[1,3,5,7], which 
+    represents the set of odd numbers between one and seven, is the same as the set[1,7,5,3]. This 
+    indicates another difference between sets and arrays. In arrays you can access any element by its
+    position in the array, but with sets you cannot access individual elements. You can only test a 
+    data item to see if it is a member of the set.     
+
+    The elements of a set can be of any ordinal type, but all of the elements must be of the same type,
+    which is called base type.
+
+    The with statement
+    There is, however, a shorter way to do this by using the with statement. When you use the 
+    with statement, you do not have to use fielded variables.    
+
+    For sets to be passed as parameters, they must be declared in the type section.(in fact any
+    user defined type , just think?  )
+
+    Files can be organized as either sequential access or random (direct) access files.In the 
+    first method an item in the file cannot be reached unless all the preceding items are read.
+    One example of a sequential access file is a purchase list which has to be read from the 
+    top down to access a specific item. The random access file is organized like a set of post 
+    office boxes, which are identified by numbers and accessed directly without the need to go
+    through them all.
+
+    while standard pascal allows only sequential access files, many implementations of Pascal
+    (including Turbo and UCSD) provide random access files as well.
+
+    Standard Pascal Provides two types of files, TEXT files and non-TEXT files(also called binary
+    or typed files).
+    
+    A TEXT file is the simpler file structure as its elements are all characters(of the type char).
+    We have already used the 
+    * standard INPUT file - keyboard(or stream)
+    * standare OUTPUT file - screen(or stream)
+    which are classified as TEXT files. A TEXT file consists of successive lines of characters
+    seperated by end-of-line marks and ends with the end-of-file mark.
+
+    The main properties of non-TEXT files are:
+    * Data are represented in the internal binary format, which means that you cannot display
+      the contents of a file using the command cat , this also speeds up the transfer of data
+      to and from the file.
+    * The main advantage of non-text files comes when using structured types such as arrays or
+      records, because then you do not need to read or write the record field by field.

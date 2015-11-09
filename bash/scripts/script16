@@ -1,0 +1,11 @@
+# Reading User Input
+echo -n "Please enter the new position: "
+
+read POSITION
+# Note how the prompt message has a colon to help signify the computer awaits the user's input.The prompt also ends with a space to seperate the user's input from the prompt.This is a common technique
+ 
+echo
+# this echo has no argument , so this echo command just prints out a new line.
+
+echo "Congratulations, $POSITION!"
+

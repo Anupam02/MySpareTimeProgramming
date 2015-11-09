@@ -1,0 +1,16 @@
+cpp.txt
+
+:Author: Anupam Patel
+:Email: patel.anupam@gmail.com
+:Date: 2015-08-15 00:20
+
+what is the concept of buffers in programming specially in C and C++ , have a look at program IntChar.cpp, and have a look at getchar() function.
+for eg consider following example in c.
+int c;
+
+while( c = getchar() and c != '\n')
+putchar(c)
+
+
+after reading a complete line it prints the putchar from starting of the buffer, what is the while loop doing here?
+

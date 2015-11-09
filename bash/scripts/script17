@@ -1,0 +1,23 @@
+# Reading multiple Values
+
+echo -n "Please enter your first name: "
+read FIRSTNAME
+echo -n "Please enter your last name: "
+read LASTNAME
+echo -n "Pleas enter the name of the country where you live: "
+read COUNTRY
+
+FULLNAME="$FIRSTNAME $LASTNAME"
+MESSAGE="Well, $FULLNAME of $COUNTRY, welcome to our huge"
+MESSAGE="$MESSAGE impersonal company."
+# Note how output is built up over a number of lines.First, the MESSAGE variable
+# gets filled with the start of the message.Then the script sets the value of 
+# the MESSAGE variable again, this time using the old value of the MESSAGE
+# variable itself as a part of the new value. This is a method you can use to 
+# augment value of a variable. //isn't is like dynamic programming concept 
+# applied in a factorial?
+
+
+echo "$MESSAGE"
+echo "You will now be known as Worker unit 10236."
+

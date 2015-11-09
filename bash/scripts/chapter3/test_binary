@@ -1,0 +1,35 @@
+# Binary test.
+
+echo "**** Binary comparisons."
+x=3
+y=10
+
+echo -n "test !: "
+if (test ! $x -eq $y) then
+    echo "x != y. Expected."
+else
+    echo "false: x = y."
+fi
+
+echo -n "test -a: "
+if (test $x -eq $x -a $y -eq $y) then
+    echo "x = x and y = y. Expected."
+else
+    echo "false: x = x and y = y."
+fi
+
+
+echo -n "test -a: "
+if (test $x -eq $x -a $y -ne $y) then
+    echo "x = x and y = y."
+else
+    echo "false: x = x and y != y. Expected."
+fi
+
+echo -n "test -o: "
+if (test $x -eq $x -o $y -ne $y) then
+    echo "x = x or y != y. Expected."
+else
+    echo "false: x = x or y != y is not true."
+fi
+

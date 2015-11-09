@@ -1,0 +1,5 @@
+# running commands form variables
+
+DIRECTORY=/usr/local
+LS=ls
+$LS $DIRECTORY

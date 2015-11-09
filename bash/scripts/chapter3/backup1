@@ -1,0 +1,14 @@
+# Example backup script, for files with names
+# ending in .txt
+
+for filename in *.txt
+do 
+    # For the most part, shells don't treat the file
+    # name extension as a special part of the file name.
+    # so in this script, the filename variable holds
+    # the name of the file. such as anupam.txt 
+    # rather than anupam .
+    #
+    echo "Copying $filename to $filename.bak"
+    cp $filename $filename.bak
+done

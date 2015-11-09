@@ -1,0 +1,576 @@
+    In 1980's Networks where just an academic curiosity, 
+    In 1988 Networks where used by large Universities and large Businesses.
+    In 1966 Networks specially the internet, had become a daily reality for a 
+    millions of people.
+    In 2003 Wireless Networks and mobile computers had become commonplace for
+    accessing the web and the internet.
+    In 2011 Networks are about content distribution (especially videos using 
+    CDNs and peer to peer networks) and mobile phones are small computers on
+    the internet. 
+new material on
+    * Wireless networks(802.12 and 802.16)
+    * The 3G networks used by smart phones
+    * RFID and sensor networks
+    * Content distribution using CDNs
+    * Peer-to-peer networks
+    * Real-time media (from stored, streaming, and live sources)
+    * Internet telephony (voice over IP)
+    * Delay-tolerant networks
+
+    Each of the past three centuries have been dominated by a single new
+    technology.
+    The merging of computers and communications has had a profound influence on 
+    the way computer systems are organized. The once-dominant concept of the 
+    "computer center" as a room with a large computer to which users bring their
+    for processing is now totally obsolete (although data centers holding 
+    thousands of Internet servers are becoming common.) The old model of a single
+    computer serving all of the organization's computational needs has been 
+    replaced by one in which a large number of seperate but interconnected 
+    computers do the job. These systems are called computer networks.
+
+    "Computer Network" means a collection of autonomous computers interconnected
+    by a single technology. Two computers are said to be interconnected if they
+    are able to exchange information. The connection need not be via a copper 
+    wire; fibre optics, microwaves, infrared, and communication satellites can 
+    also be used. Networks come in many sizes, shapes and forms, as we will see 
+    later. They are usually connected together to make larger networks, with the
+    Internet being the most well-known example of a network of networks.
+
+    There is considerable confusion in the literature between a computer network
+    and a distributed system.The key distinction is that in a distributed system,
+    a collection of independent computers appears to its users as a single 
+    coherent system. Usually, it has a single model of paradigm that it presents 
+    to the users. Often a layer of software on top of the operating system, 
+    called MIDDLEWARE , is responsible for implementing this model. A well-known
+    example of a distributed system is the World Wide Web. It runs on top of the 
+    Internet and presents a model in which everything looks like a document
+    (Web page).
+
+    In a computer network, this coherence, model, and software are absent.Users
+    are exposed to the actual machines, without any attempt by the system to 
+    make this machines look and act in a coherent way. If the machines have 
+    different hardware and different operating systems, that is fully visible to 
+    the users. If a user wants to run a program on a remote machine, he has to 
+    log onto that machine and run it there.
+
+    In effect , a distributed system is a software system built on top of a 
+    network. The software gives it a high degree of cohesiveness and transparency.
+    Thus, the distinction between a network and a distributed system lies with
+    the software(especially the operating system), rather than with the hardware.
+
+    Nevertheless, there is considerable overlap between the two subjects. 
+    For example, both distributed systems and computer networks need to move files
+    around. The difference lies in who invokes the movement, the system or the
+    user.
+USES OF COMPUTER NEWORKS
+1.1.1 Business Applications
+        The main aim is for resource sharing, information sharing , (one version
+        of this is VPN which is used to join the individual networks at different 
+        sites into one extended network.)
+        client server model, Web application, communication medium(for people) ,
+        electronic mail, IP telephony or Voice over IP(VoIP) , Video can be added to 
+        audio so that employees at distant locations can see and hear each other as
+        they hold a meeting. Desktop sharing lets remote workers see and interact
+        with a graphical computer screen. This makes it easy for two or more people
+        who work far apart to read and write a shared black-board or write a report
+        together.When one worker makes a change to an online document, the others 
+        can see the change immediately , instead of waiting several days for a letter.
+        Such a speedup makes cooperation among far-flung groups of people easy where
+        it previously had been impossible. More ambitious forms of remote coordination
+        such as telemedicine are only now starting to be used(e.g., remote patient
+        monitoring ) but may become much more important. It is sometimes said that
+        communication and transportation are havin a race, and whichever wins will
+        make the other obsolete.
+        A third goal for many companies is doing business electronically, 
+        especially with custormers and suppliers. This new model is called e-commerce
+        (electronic commerce) and it has grown rapidly in recent years. Airlines, 
+        bookstores, and other retailers have discovered that many customers like
+        the convenience of shopping from home. Consequently, many companies provide
+        catalogs of their goods and services online and take orders online. 
+        Manufacturers of automobiles, air - craft , and computers, among others ,
+        buy subsystems from a variety of suppliers and then assemble the parts .
+        Using computer networks, manufacturers can place orders electronically as
+        needed. This reduces the need for large inventories and enhance efficiency.
+1.1.2 Home Applications
+        In 1977, Ken Olsen was president of the Digital Equipment Corporation,then
+        the number two computer vendor in the world (after IBM). When asked why
+        Digital was not going after the personal computer market in a big way, 
+        he said: "There is no reason for any individual to have a computer in his
+        home." History showed otherwise and Digital no longer exists. People 
+        initially bought computers for word processing and games. Recently , the
+        biggesr reason to buy a home computer was probably for Internet access. 
+        Now , many consumer electronic devices , such as set-top boxes , game
+        consoles , and clock radios, come with embedded computers and computer 
+        networks, especially wireless networks, and home networks are broadly used
+        for entertainment, including listening to, looking at, and creating music,
+        photos, and videos.
+    CLIENT SERVER COMMUNICATION
+        Internet access provides home users with connectivity to remote computers.
+        As with companies, home users can access information, communicate with
+        other people, and buy products and services with e-commerce. The main
+        benefit now comes from connecting outside of the home. Bob Metcalfe, the
+        inventor of Ethernet, hypothesized that the value of a network is propot-
+        ional to the square of the number of users because this is roughly the 
+        number of different connections that may be made(Gilder, 1993). This 
+        hypothesis is known as "Metcalfe's law." It helps to explain how the 
+        tremendous popularity of the Internet comes from its size.
+
+        There are many types of information on the remote servers, like surfing
+        the web, online  news which can be customized. online journals and many
+        more.
+
+        Much of this information is based on client server model, but there is 
+        different , popular model for accessing information that goes by the name
+        of peer-to-peer communication.
+    PEER TO PEER COMMUNICATION
+        In this form , individuals who form a loose group can communicate with others 
+        in the group. Every person can , in principle, communicate with one or more 
+        other people; there is no fixed division into clients and servers.
+
+        Many peer-to-peer systems, such BitTorrent(Cohen, 2003) , do not have any central
+        database of content . Instead , each user maintains his own database locally and
+        provide a list of other nearby people who are members of the system. A new user
+        can then go to any existing member to see what he has and get the names of other 
+        members to inspect for more content and more names. This lookup process can be 
+        repeated indefinitely to build up a large local database of what is out there.
+        It is an activity that would get tedious for people but computers excel at it.
+
+        Peer-to-Peer communication is often used to share music and videos.It really 
+        hit the big time around 2000 with a music sharing service called Napster that
+        was shut down after what was propably the biggest copyright infringement case
+        in all of recorded history. Legal applications for peer to peer communication
+        also exists . These include fans sharing public domain music, families,sharing
+        photos and movies, and users downloading public software packages. In fact, 
+        one of the most popular Internet applications of all, email , is inherently 
+        peer to peer. This form of communication is likely to grow considerably in 
+        the future.
+    PERSON TO PERSON COMMUNICATION
+        peer to peer applications involve interactions between a person and a remote
+        database full of information. but person to person involves direct interaction
+        between a person and another person not remote database full of information.
+        Basically  the 21st century's answer to the 19th century's telephone. E-mail
+        is already used on a daily basis by millions of people all over the world and
+        it's use is growing rapidly. It already routinely contains audio and video as 
+        well as text and pictures. 
+        Instant messaging, Twitter, audio(e.g., Internet radio stations) and video
+        (eg , Youtube). Online classes,social network applications-here flow of info
+        is driven by the relationship that people declare between each other.like
+        Facebook, orkut, Myspace, etc.
+        Even more loosely , groups of people can work together to create content. A
+        wiki, for example,is a collaborative Web site that the members of a community
+        edit. The most famous wiki is the Wikipedia, an encyclopedia anyone can edit,
+        but there are thousands of other wikis.
+        Some of these forms of e-commerce have aquired cute little tags based on the
+        fact that "to" and "2" are pronounced the same. The most popular ones are:-
+            Tag    |     Full name                | Example
+            B2C    | Business-to-Consumer         | Ordering books online
+            B2B    | Business-to-Business         | Car manufacturer ordering tires from supplier
+            G2C    | Government-to-Consumer       | Government distributing tax forms electronically
+            C2C    | Consumer-to-Consumer         | Auctioning second-hand products online
+            P2P    | Peer-to-Peer                 | Music sharing
+    ENTERTAINMENT
+        This had made huge strides in the home in recent years, with the distribution of 
+        music , redio and television programs, and movies over the internet beginning to
+        rival that of traditional mechanims. Users can find, buy, and download MP3 songs
+        and DVD-quality movies and add them to their personal collection. TV shows now 
+        reach many homes via IPTV(IP Television) systems that are based on IP technology 
+        instead of cable TV or radio transmissions. Media streaming applications lets
+        users tune into Internet radio stations or watch recent episodes of their favorite
+        TV shows. Naturally, all of this content can be moved around your house between 
+        different devices, displays and speakers , usually with a wireless network.
+        Another form of entertainment is game playing. Already we have multiperson real-
+        time simulation games, like hide-and-seek in a virtual dungeon, and flight
+        simulators with the players on one team trying to shoot down the players on the 
+        opposing team. Virtual worlds provide a persistent setting in which thousands 
+        of users can experience a shared reality with three-dimensional graphics.
+    UBIQUITOUS COMPUTING
+        computer is embedded into everyday life, as in the vision of Mark Weiser(1991). 
+        Many homes are already wired with security systems that include door and window
+        sensors, and there are many more sensors that can be folded in to a smart home
+        monitor, such as energy consumption. Your electricity , gas and water meters
+        could also report usage over the network. This would save money as there would 
+        be no need to send out meter readers. And your smoke detectors could call the
+        fire department instead of making a big noise (which has little value if no one
+        is home). As the cost of sensing and communcation drops , more and more measurement and reporting will be done with networks.
+        Increasingly , consumer devices are networked. For example, some high-end cameras
+        already have a wireless network capability and use it to send photos to a 
+        nearby display for viewing. Professional sports photographers can also send
+        their photos  to their editors  in real-time, first wirelessly to an access
+        point then over the Internet. Devices such as television that plug into the
+        wall can use power-line-networks to send information throughout the house over
+        the wires that carry electricity. It may not be very surprising to have these
+        objects on the network, but objects that we do not think of as computers may
+        sense and communicate information too. For example , your shower may record
+        water usage, give you visual feedback while you lather up, and report to a
+        home environmental monitoring application when you are done to help save on your water bill.
+        A technology called RFID (Radio Frequency IDentification) will push this idea
+        ever further in the future. RFID tags are passive(i.e. , have no battery) chips
+        the size of stamps and they can already be affixed to books, passports, pets,
+        credit cards, and other items in the home and out. This lets RFID readers 
+        locate and communicate with the items in the home and out. This lets RFID readers
+        locate and communicate with the items over a distance of up to several meters,
+        depending on the kind of RFID, Originally , RFID was commercialized to replace
+        barcodes, It has not succeeded yet because barcodes are free and RFID tags cost
+        a few cents. Of course, RFID tags offer much more and their price is rapidly
+        declining. They may turn the real world into the Internet of things (ITU, 2005).
+1.1.3 Mobile Users
+
+        Mobile computers, such as laptop and handheld computers, are one of the fastest
+        -growing segments of the computer industry. The sales have already overtaken 
+        those of desktop computers.
+
+        Connectivity to the Internet enables many of these mobile uses. Since having a
+        wired connection is impossible in cars, boats, and airplanes, there is a lot of
+        interest in wireless networks. Cellular networks operated by the telephone
+        companies are one familiar kind of wireless network that blankets us with
+        coverage for mobile phones. Wireless hotspots based on the 802.11 standard are
+        another kind of wireless network for mobile computers. They have sprung up
+        everywhere that people go, resulting in a patchwork of coverage at cafes, hotels
+        airports, schools , trains and planes. Anyone with a laptop computer and a
+        wireless modem can just turn on their computer on and be connected to the 
+        Internet through the hotspot, as though the computer were plugged into a wired
+        network.
+
+        Wireless networks are of great value to automobile industry ,and military as 
+        well. It is provides a better connectivity with the client.
+
+        Although wireless networking and mobile computing are often related, they are
+        not identical. Here we see a distinction between fixed wireless and mobile
+        wireless networks. Even notebook computer into the wired network jack in a
+        hotel room, he has mobility without a wireless network.
+
+        Wireless  | Mobile  | Typical applications
+        No        | No      | Desktop computers in offices
+        No        | Yes     | A notebook computer used in a hotel room
+        Yes       | No      | Networks in unwired buildings
+        Yes       | Yes     | Store inventory with a handheld computer
+
+        Perhaps the key driver of mobile, wireless applications is the mobile phone. Text 
+        messaging or texting is tremendously popular. It lets a mobile phone user type a
+        short message that is then delivered by the cellular network to another mobile 
+        subscriber. Few people would have predicted ten years ago that having teenagers 
+        tediously typing short text messages on mobile phones would be an immense money
+        maker for telephone companies . But texting(osr Short Message Service as it is known
+        outside the U.S.) is very profitable since it costs the carrier but a tiny fraction
+        of one cent to relay a text message, a service for which they charge far more.
+
+        The long awaited convergence of telephones and the internet has finally arrived,and
+        it will accelerate the growth of mobile applications. Smart phones, such as the 
+        popular iPhone, combine aspects of mobile phones and mobile computers. The (3G and
+        4G) cellular networks to which they connect can provide fast data services for 
+        using the internet as well as handling phone calls. Many advanced phones connect to 
+        wireless hotspots too, and automatically switch between networks to choose the best
+        option for the user.
+
+        Other consumer electronic devices can also use cellular and hotspot networks to
+        stay connected to remote computers. Electronic book readers can download a newly 
+        purchased book or the next edition of a magazine or today's newspaper wherever 
+        they roam. Electronic picture frames can update their displays on cue with fresh images.
+
+        Since mobile phones know their locations, often because they are equipped with
+        GPS( Global Positioning System) receivers, some services aare intentionally 
+        location dependent. Moblie maps and directions are an  obvious candidate as your 
+        GPS-enabled phone and car probably have a better idea of where you are than you
+        do. So, too, are searches for a nearby bookstore or Chinese restaurent, or a local
+        weather forecast. Other services may record location , such as annotating photos
+        and video with the place at which they were made. This annotation is known as "geo-tagging."
+
+        An area in which mobile phones are now starting to be used is m-commerce(mobile-commerce)
+        (Senn, 2000). Short text messages from the mobile are used to authorize payments for 
+        food in vending machines, movie tickets, and other small items instead of cash and
+        credit cards. The charge then appears on the mobile phone bill. When equipped with
+        NFC (Near Field Communication) technology the mobile can act as an RFID smartcard and
+        interact with a nearby reader for payment. The driving forces behind this phenomenon
+        are the mobile device makers and network operators, who are trying hard to figure out
+        how to get a piece of the e-commerce pie. From the store's point of view, this scheme
+        may save them most of the credit card company's fee, which can be several percent.
+   
+        One huge thing that m-commerce has going for it is that mobile phones users are
+        accustomed to paying for everything (in contrast to Internet users, who expect
+        everything to be free). If an Internet Web site charged a fee to allow its 
+        customers to pay by credit card, there would be an immense howling noise from
+        the users. If however, a mobile phone operator its customers to pay for items 
+        in a store by waving the phone at the cash register  and then tacked a fee for
+        this convenience, it would probably be accepted as normal. Time will tell.
+
+    Sensor Networking
+        No doubt the uses of mobile and wireless computers will grow rapidly in the future
+        as the size of computers shrinks, probably in ways no one can now foresee. Let us
+        take a quick look at some possibilities. Sensor networks are made up of nodes that
+        gather and wirelessly relay information they sense about the state of the physical
+        world. The nodes may be part of familiar items such as cars or phones, or they may
+        be small separate devices. For example, your car might gather data on its location,
+        speed, vibration, and fuel efficiency from its on-board diagnostic system and 
+        upload this information to a database(Hull et al. 2006). Those data can help find
+        potholes, plan trips around congested roads, and tell you if you are "gas guzzler"
+        compared to other drivers on the same strech of road.
+
+        Sensors networks are revolutionizing science by providing a wealth of data on
+        behaviour that could not previously be observed. One example is tracking the 
+        migration of individual zebras by placing a small sensor on each animal(Juang et
+        al., 2002). Researchers have packed a wireless computer into a cube 1mm on edge
+        (Warneke et al. 2001). With mobile computers this small, even small birds ,rodents,
+        and insects can be tracked.
+
+    Wearable computers 
+        wearable computers are another promising application. Smart watches with radios 
+        have been part of our mental space since their appearance in the Dick Tracy comic
+        strip in 1946; now you can buy them. Other such devices may be implanted , such as
+        pacemakers and insulin pumps. Some of these can be controlled over a wireless 
+        network. This lets doctors test and reconfigure them more easily . It could also
+        lead to some nasty problems if the devices are as insecure as the average PC and
+        can be hacked easily (Halperin et al. 2008). 
+
+1.1.4 Social Issues
+    SOCIAL RESPONSIBILITY
+    
+        Computer networks, like the printing press 500 years ago, allow ordinary citizens
+        to distribute and view content in ways that were not previously possible. But 
+        along with the good comes the bad, as this new-found freedom brings with it many
+        unsolved social, political , and ethical issues.
+
+        Social networks ,message boards, content sharing sites, and a host of other applications
+        allow people to share their views with like-minded individuals. As long as the subjects
+        are restricted to technical topics or hobbies like gardening, not too many problems will arise.
+
+        The trouble comes with the topics that people actually care about, like politics, religion
+        or sex. Views that are publicly posted may be deeply offensive to some people. Worse yet, 
+        they may not be politically correct. Furthermore, opinions need not be limited to text; 
+        high-resolution color photographs and video clips are easily shared over computer networks.
+        Some people take a live-and-let-live view, but others feel that posting certain material 
+        ( eg , verbal attacks on particular countries or religions, pornography , etc.) is simply
+        unacceptable and that such content must be censored. Different countries have different and
+        conflicting laws in this area. Thus , the debate rages.
+    
+    FAIRNESS (NET NEUTRALITY)
+    
+        In the past, people have sued network operators, claiming that they are responsible for the
+        contents of what carry, just as newspapers and magazines are. The inevitable response is 
+        that a network is like a telephone company or the post office and cannot be expected to 
+        police what its users say.    
+    
+        It should now come only as a slight surprise to learn that some network operators block content
+        for their own reasons. Some users of peer-to-peer applications had their network service cut off
+        because the network operators did not find it profitable to carry the large amounts of traffic 
+        sent by those applications. Those same operators would probably like to treat different companies
+        differently. If you are a big company and pay well then you get good service, 
+        but if you are a small-time player, you get
+        poor services. Opponents of this practice argue that peer-to-peer and other content should be
+        treated in the same way because they are all just bits to the network. This argument for communications
+        that are not differentiated by their content of source or who is providing the content is known as
+        network neutrality( Wu, 2003). It is probably safe to say that will go on for a while.
+    
+        Many other parties are involved in the tussle over content. For instance, pirated music and movies 
+        fueled the massive growth of peer-to-peer networks, which did not please the copyright holders who
+        have threatened (and sometimes taken) legal action. There are now automated systems that search peer
+        -to-peer networks and fire off warnings to network operators and users who are suspected of infringing
+        copyright. In the United States, these warnings are known as DMCA takedown notices after the 
+        Digital Millennium Copyright Act. This search is an arms' race because it is hard to reliably catch
+        copyright infringement. Even your printer might be mistaken for a culprit(Piatek et al. 2008).
+    
+        Computer networks make it very easy to communicate. They also make it easy  to communicate. They also
+        make it easy for the people who run the network to snoop on the traffic. This sets up conflicts over
+        issues over issues such as employee rights versus employer rights. Many people read and write email at
+        work. Many employers have claimed the right to read and possibly censor employee messages, including
+        messages sent from a home computer outside working hours. Not all employees agree with this, especially
+        the later part.
+
+    PRIVACY
+        Another conflict is centered around government versus citizen's rights. The FBI has installed systems 
+        at many Internet service providers to snoop on all incoming and outgoing email for nuggets of interest.
+        One early system was originally called Carnivore, but bad publicity caused it to be renamed to the more
+        innocent-sounding DCS1000 . The goal of such system is to spy on millions of people in the hope of 
+        perhaps finding information about illegal activities. Unfortunately for the spies , without a search 
+        warrant, but the government often ignores it.
+    
+        Of course, the government does not have a monopoly on threatening people's privacy. The private sector
+        does it bit too by profiling users. For example, small files called cookies that Web browsers store on
+        users computers allow companies to track users activities in cyberspace and may also allow credit card
+        numbers , social security numbers, and other confidential information to leak all over the internet(Berghel, 2001).
+        Companies that provide Web-based services may maintain large amounts of personal information about their
+        users that allows them to study user activities directly. For example, Google can read your email
+        and show you advertisements based on your interests if you use it email service, Gmail.
+    
+        A new twist with the mobile device is location privacy(Beresford and Stajano, 2003). As part of the process of
+        providing service to your mobile device the network operators learn where you are at different times of day. 
+        This allows them to track your movements. They may know which nightclub you frequent and which medical center you visit.
+    
+        Computer networks also offer the potential to increase privacy by sending anonymous messages. In some situations,
+        this capability may be desirable. Beyond preventing companies from learning your habits, it provides, for example,
+        a way for students, soldiers , employees, and citizens to blow the whistle on illegal behaviour on the part of
+        professorss, officers, superiors, and politicians without fear of reprisals. On the other hand, in the United States
+        and most other democracies, the law specifically permits an accused person the right to confront and challenge
+        his accuser in court so anonymous accusations cannot be used as evidence.
+
+    INFORMATION QUALITY
+        The Internet makes it possible to find it possibel to find information quickly , but a great deal of it is ill
+        considered , misleading , or downright wrong. That medical advice you plucked from the Internet about the pain
+        in your chest may have come from a Nobel Prize winner of from a high-school dropout.
+    
+        Other information is frequently unwanted. Electronic junk mail(spam) has become a part of life because spammers 
+        have collected millions of email addresses and would-be marketers can cheaply send computer-generated messages 
+        to them. The resulting flood of spam rivals the flow messages from real people. Fortunately , filtering  software
+        is able to read and discard the spam generated by other computers, with lesser or greater degrees of success.
+
+    CRIMINAL BEHAVIOUR ( CRACKER)     
+        Still other content is intended for criminal behaviour. Web pages and email messages containing active
+        content( basically , programs or macros that execute on the receiver's machine) can contain viruses
+        that take over your computer. They might be used to steal your bank account password, or to have your
+        computer send spam as part of a botnet of pool of compromised machines.
+
+        Phising messages masquerade as originating from a trustworthy party, for example , your bank, to try
+        to trick you into revealing sensitive information, for example, credit card numbers. Identity theft is
+        becoming a serious problem as thieves collect enough information about a victim to obtain credit cards
+        and other documents in the victim's name.
+
+        It can be difficult to prevent computers from impersonating people on the Internet. This problem has 
+        led to the development of CAPTCHAs, in which a computer asks a person to solve a short recognition task,
+        for example , typing in the letters shown in a distorted image, to show that they are human (von Ahn, 2001).
+        This process is a variation on the famous Turing test in which a person asks questions over a network to
+        judge whether the entity responding is human.
+
+        A lot of these problems could be solved if the computer industry took computer security seriously. If all
+        messsages were encrypted and authenticated , it would be harder to commit mischief. Such technology is well
+        developed under Crytography. The problem is that  hardware and software vendors know that putting in 
+        security features costs money and their customers are not demanding such features. In addition , a
+        substantial number of the problems are caused by buggy software which occurs because vendors keep adding
+        more and more features to their programs, which inevitably means more code and thus more bugs. A tax on 
+        new features might help, but that might be a tough sell in some quarters. A refund for defective software
+        might be nice, except it would bankrupt the entire industry in the first year.
+
+        Computer networks raise new legal problems when they interact with old laws. Electronics gambling provides an
+        example . Computers have been simulating things for decades , so why not simulate slot machines, roulette 
+        wheels, blackjack dealers, and more gambling equipment? Well, because it is illegal in a lot of places.
+        The trouble is , gambling is legal in a lot of other places(England, for example) and casino owners there
+        have grasped the potential for Internet gambling. What happens if the gambler, the casino, and the server
+        are all in different countries, with conflicting laws?
+
+1.2 NETWORK HARDWARE
+        There is no generally accepted taxonomy into which all computer network fit,but
+        two dimensions stands out as important:
+    TRANSMISSION TECHNOLOGY
+        POINT TO POINT (UNICAST)
+        BROADCAST(WHEN BROADCAST TO A SUBSET CALLED MULTICAST)
+    SCALE
+            interprocessor distance  Processors located in same   Example
+            1m                       Square meter                 Personal area network( bluetooth, RFID ,NFC etc)
+            10m                      Room--------                
+            100m                     Building----                 Local area network( LAN, Wifi aka IEEE 802.11 etc)
+            1km                      Campus------                 
+            10km                     City                         Metropolitan area network
+            100km                    Country*****                 
+            1000km                   Continent***                 Wide area network
+            10,000km                 Planet                       The internet
+        media 
+            Wired LANs use a range of different transmission technologies. Most of them use copper
+            wires, but some use optical fibres, LANs are restricted in size, which means that the
+            worst-case transmission time is bounded and known in advance. Knowing these bounds helps
+            with the task of designing network protocols. Typically, wired LANs run at speeds of 
+            100 Mbps to 1 Gbps, have low delay(microseconds or nanoseconds), and make very few errors.
+            Newer LANs can operate at up to 10 Gbps. Compared to wireless network, wired LANs exceed 
+            them in all dimensions of performance. It is just easier to send signals over a wire or
+            through a fiber than through air.
+            The topology of many wired LANs is built from point-to-point links. IEEE 802.3, popularly
+            called Ethernet, is by far the most common type of wired LAN. Each computer speaks the
+            Ethernet protocol and connects to a box called a switch with a point-to-point link.Hence
+            the name. A switch has multiple ports, each of which can connect to one computer. The job
+            of the switch is to relay packets between computers that are attached to it, using the 
+            address in each packet to determine which computer to send it to.
+            To build larger LANs, swiches can be plugged into each other using their ports. What 
+            happens if you plug them together in a loop? Will the network still work? Luckily , the
+            designers thought of this case. It is the job of the protocol to sort out what paths 
+            packets should travel to safely reach the intended computer.
+        virtual LANs 
+            It is also possible to divide one large physical LAN into two smaller logical LANs. You
+            might wonder why this would be useful. Sometimes , the layout of the network equipment
+            does not match the organization's structure. For example, the engineering and finance
+            departments of a company might have computers on the same physical LAN because they are
+            in the same wing of the building but it might be easier to manage the system if engineering
+            and finance logically each had its own network Virtual LAN or VLAN.In this design each 
+            port is tagged with a "color" say green for engineering and red for finance. The switch then
+            forwards packets so that computers attached to the green ports are seperated from the 
+            computers attached to the red ports. Broadcast packets sent on a red port, for example,
+            will not be recieved on a green port , just as though there were two different LANs.
+        static design
+            Both wireless and wired broadcast networks can be divided into static and dyanmic designs,
+            depending on how the channel is allocated. A typical static allocation would be to divide
+            time into discrete intervals and use a round-robin algorithm, allowing each machine to 
+            broadcast only when its time slot comes up. Static allocation wastes channel capacity when
+            a machine has nothing to say during its allocated slot, so most systems attempt to allocate
+            the channel dynamically (i.e. on demand).
+        dynamic design
+            Dynamic allocation methods for a common channel are either centralized or decentralized. In
+            the centralized channel allocation method, there is a single entity, for example, the base
+            station in cellular networks, which determines who goes next. It might do this by accepting
+            multitude packets and prioritizing them according to some internal algorithm. In the 
+            decentralized channel allocation method, there is no central entity; each machine must
+            decide for itself whether to transmit.this might seems like this approach lead to chaos, but
+            it does not. alogorithms are designed to bring order out ot the potential chaos.
+        era of networked devices
+            It is worth spending a little more time discussing LANs in the home. In the future, it is 
+            likely that every appliance in the home will be capable of communicating with every other
+            appliance, and all of them will be accessible over the Internet.This development is likely
+            to be one of those visionary concepts that nobody asked for (like TV remote controls or mobile
+            phones), but once they arrived nobody can imagine how they lived without them.
+            Many devices are already capable of being networked. These include computers, entertainment
+            devices such as TVs and DVDs , phones and other consumer electronics such as cameras, appliances
+            like clock radios, and infrastructure like utility meters and thermostats.This  trend will only
+            continue.For instance,the average home probably has a dozen of clocks(eg in appliances) , all of
+            which could adjust to daylight savings time automatically if the clocks were on Internet. Remote
+            monitoring of the home is a likely winner, as many grown children would be willing to spend some
+            money to help their aging parents live safely in their own homes.
+        demands of customer
+            easy to install
+                While we could think of the home network as just another LAN, it is more likely to have different
+                properties than other networks. First, the networked devices have to be very easy to install. Wireless
+                routers are the most returned consumer electronic item. People buy one because they want a wireless
+                network at home, find that it does not work "out of the box" , and then return it rather than 
+                listen to elevator music while on hold on the technical helpline.
+            foolproof in operation
+                Second the network and devices have to be foolproof in operation.Air conditioners used to have one
+                knob with four settings: OFF, LOW, MEDIUM, and HIGH. Now they have 30-page manuals. Once they are
+                networked , expect the chapter on security alone to be 30 pages. This is a problem because only 
+                computer users are accustomed to putting up with products that do not work; the car-television-,
+                and refrigerator-buying public is far less tolerant. They expect products to work 100% without
+                the need to hire a geek. 
+            low price
+                Third, the low price is essential for success. People will not pay a $50 premium for an internet thermostat
+                because few people regard monitoring their home temperature from work that important. For $5 extra,though it might sell
+            common peripheral formats
+                Fourth, it must be possible to start out with one or two devices and expand the reach of the network
+                gradually. This means no format wars. Telling consumers to buy peripherals with IEEE 1394(FireWire)
+                interfaces and a few years later retracing that and saying USB 2.0 is the interface-of-the-month and
+                then switching that to 802.11g--oops, no, make that 802.11n-I mean 802.16(different wireless networks)
+                --is going to make consumers very skittish. The network interface will have to remain stable for decades
+                ,like the television broadcasting standards.
+            security and reliability
+                Fith security and reliability will be very important. Losing a few files to an email virus is one
+                thing; having a burglar disarm your security system from his mobile computer and then plunder your 
+                house is something quite different.
+        wired or wireless?
+            An interesting question is whether home networks will be wired or wireless. Convenience and cost favours
+            wireless networking because there are no wires to fit, or worse, retrofit. Security favours wired networking
+            because the radio waves that wireless networks use are quite good at going through walls. Not everyone is
+            overjoyed at the thought of having the neighbors piggybacking on their Internet connection and reading their
+            emails.
+        power-line-networks
+            A third option that may be appealing is to reuse the networks that are already in the home. The obvious
+            candidate is the electric wires that are installed throughout the house. Power-line networks let devices
+            that plug into outlets broadcast information throughout the house.  You have to plug in the TV anyway,
+            and this way it can get Internet connectivity at the same time.The difficulty is how to carry both power
+            and data signals at the same time. Part of the answer is that they use different frequency bands.
+            
+            In short , home LANs offer many oppurtunities and challenges. Most of the latter relate to the need for
+            networks to be easy to manage, dependable, and secure, especially in the hands of nontechnical users , as well as low cost.
+        METROPOLITAN AREA NETWORK
+            antenna to cable
+            A MAN(Metropolitan Area Network) covers a city. The best-known example of MANs are the cable television
+            networks available in many cities. These systems grew from earlier community antenna systems used in
+            areas with poor over-the-air television reception. In those early systems, a large antenna was placed
+            on top of a nearby hill and a signal was then piped to the subscribers' houses.
+            adhoc to govn supported cable network
+    
+    
+
+ 
+

@@ -1,0 +1,4 @@
+# listing Up Commands with variables
+
+DIRECTORY=/usr/local
+ls $DIRECTORY

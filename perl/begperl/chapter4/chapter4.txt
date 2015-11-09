@@ -1,0 +1,30 @@
+chapter4.txt
+
+:Author: Anupam Patel
+:Email: patel.anupam@gmail.com
+:Date: 2015-10-19 23:50
+
+handling access of keys which are not present
+    this is checked by a condition (not exists $rates{$to}), die is a way of
+    making Perl print out an error message and finish the program. It also 
+    reports to the operating system - Windows, Unix, Linux or whatever it
+    may be, that the program finished with an error.(like in my linux it 
+    is 255 ,which is exit status, 0 is for successful program execution in linux) 
+
+What is false? in perl
+    * An empty string, "", is false.
+    * The number zero and the string "0" are both false.
+    * An empty list , (), is false.
+    * The undefined value is false.
+    * Everything else is true.
+
+statement modifiers
+    * this happens if this doesn't exists,{ print "you rock " if $a == 5 ; 
+    * this happens unless this exists.
+    * this happens with for too , $total += $_ for (@ARGV);
+    * this happens with while too , $countdown = 5, print "Counting down: $countdown\n" while $countdown-- ;
+
+if oppositie unless,
+while opposite until,
+keyword last is equivalent to break in perl
+keyword next is equivalent to continue in perl

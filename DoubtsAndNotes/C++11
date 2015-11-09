@@ -1,0 +1,67 @@
+what feature does C++11 offer over and above C++98? A machine model suitable 
+for modern computers with lots of concurrency. 
+* Languages and standard-library facilities for doing systems-level concurrent
+  Programming(e.g. , using multicores).
+* Regular expression handling, 
+* Resource management pointers,
+* Random numbers,
+* a simple for-statement,
+* move semantics,
+* Basic unicode support,
+* lambdas,
+* general constant expressions
+* control over class defaults,
+* variadic templates,
+* user-defined literals, and more.
+
+In particular, C++'s design aims to be sufficiently flexible and general to 
+cope with the future problems undreamed of by its designers.
+
+New language features such as namespaces, exceptions, templates, and run-time
+type identification identification allow many techniques to be applied more
+directly than was possible before,and the standard library allows the 
+programmer to start from a much higher level than the bare language.(boon or curse?).
+
+They include refined overloading resolution, memory management facilities, and
+access control mechanisms, type-safe linkage, const and static member functions,
+abstract classes, multiple inheritance, templates, and exception handling.
+
+C++ is a general purpose programming language designed to make programming more
+enjoyable for the serious programmer.Except for minor details, C++ is a superset
+of the C programming language. In addition to the facilities provided by C, C++
+provides flexible and efficient facilities for defining new types. A programmer
+can partition an application into manageable pieces by defining new types that 
+closely match the concepts of the application. This technique for program 
+construction is often called data abstraction. Objects of some user-defined 
+types contain type information.Such objects can be used conveniently and safely
+in contexts in which  their type cannot be determined at compile time. Programs
+using objects of such types are often called object based. When using well,
+these techniques results in shorter , easier to understand , and easier to 
+mantain programs.
+
+The key concept in C++ is class, A class is a user-defined type. Classes provide
+* data hiding,
+* guaranteed initialized of data,
+* implicit type conversion for user-defined types,
+* dynamic typing,
+* user-controlled memory management,
+* mechanism for overloading operators,
+
+C++ provides much better facilities for
+* type checking
+* expressing modularity than C does.
+
+C++ also contains improvements that are not directly related to classes, 
+including :-
+* symbolic constants
+* inline substitution of functions,
+* default function arguments,
+* overloaded function names,
+* free store management operators,
+* and a reference type.
+
+C++ retains C's ability to deal efficiently with the fundamental objects of the
+hardware (bits, bytes, words, addresses, etc.). This allows the user-defined
+types to be implemented with a pleasing degree of efficiency.
+
+    

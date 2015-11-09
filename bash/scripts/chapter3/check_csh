@@ -1,0 +1,12 @@
+# script to check for check_csh
+# using elif keyword
+
+echo "Checking for a C shell....."
+
+if (which csh > /dev/null 2> /dev/null ) then
+    echo "csh found."
+elif (which tcsh > /dev/null ) then
+    echo "tcsh found, which works like csh."
+else
+    echo "csh NOT found."
+fi
